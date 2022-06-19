@@ -1,0 +1,6 @@
+#lmplot - scatterplot with 2 regression lines in different colors
+sns.lmplot(x=column/row, y=samething, hue = samething, data = filename)
+
+sns.histplot(data)
+sns.kdeplot(data, shade=True)
+sns.jointplot(x=,y=,kind="kde") #2d kde
