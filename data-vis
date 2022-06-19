@@ -2,5 +2,8 @@
 sns.lmplot(x=column/row, y=samething, hue = samething, data = filename)
 
 sns.histplot(data)
-sns.kdeplot(data, shade=True)
+sns.kdeplot(data = filename, x= horizontal_axis, shade=True) (y axis is the distribution)
 sns.jointplot(x=,y=,kind="kde") #2d kde
+
+img = https://imgur.com/LPWH19I.png
+#summary image
