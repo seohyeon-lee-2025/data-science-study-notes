@@ -3,3 +3,11 @@
 my_dict = dict(zip(key_list, value_list))
 
 #my_pipeline = Pipeline(steps = [('preprocessor', SimpleImputer()), ('model', RandomForestRegressor(n_estimators = 100)])
+
+#6/19/2022 morning
+#XGBoost and Data leakage in intermed ml
+
+#target leakage: data collected after the point of prediction is used as training data. gives nonsensical results like "people who took antibiotics are likely to get pneumonia"
+#actually lots of people who took antibiotics took it BECAUSE they got pneumonia
+
+#train-test contamination: validation/test data got incorporated in training data. good training results but performs poorly when applied to different data setsㄺ
