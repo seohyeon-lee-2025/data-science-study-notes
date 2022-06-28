@@ -1,0 +1,16 @@
+#6/27/2022 Mon
+#tried to study SQL but kaggle was being sketchy
+#studied time series
+
+target = weight*time + bias
+  #time dummy
+  np.arange(len(df)
+
+#lag plot
+  #current value vs value before 1 cycle
+  #used to see if dataset has serial dependence (if you can predict current observation from previous observations)
+  
+#moving average
+.rolling(
+window = (number of whatever
+).mean()
