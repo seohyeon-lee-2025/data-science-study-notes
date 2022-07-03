@@ -14,3 +14,25 @@ target = weight*time + bias
 .rolling(
 window = (number of whatever
 ).mean()
+
+#7/3/2022 Sun
+#wasn't able to focus for a while 
+
+#periodogram
+#stremgth of frequencies in time series
+
+#seasonality
+#indicators vs fourier features
+
+  #seasonal indicators
+    #binary features that represent seasonal difference - one hot encoding used to make these
+ohe = OneHotEncoder()
+#what does sparse = False do>
+X = pd.DataFrame(ohe.fit_transform(df), index = None, columns = None)
+index - vertical axis
+columns - horizontal axis
+df = stuff I want to one hot encode
+
+or pd.get_dummies(Series)
+
+
