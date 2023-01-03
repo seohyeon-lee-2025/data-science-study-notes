@@ -1,0 +1,65 @@
+/* Spinoff from Khan Academy project*/
+/*Data dig from books I read in 2022*/
+CREATE TABLE booklist (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, author TEXT, genre TEXT, source TEXT, note TEXT, readmonth TEXT, finished INTEGER, want_to_reread TEXT);
+/* finished: 0 if in progress, -1 if DNF, 1 if finished*/
+/* readmonth: 0 if I can't remember*/
+
+INSERT INTO booklist (id, name, author, genre, source, note, readmonth, finished, want_to_reread)
+VALUES (0, "Who is Wellness For?", "Fariha Roisin", "autobiography", "Library", "daughter of a traumatized family narrative", 12, 0, "not sure yet");
+
+INSERT INTO booklist (id, name, author,genre,  note, source, readmonth, finished)
+VALUES (1, "Cool for You", "Eileen Myles", "fiction", "still reading", "mentioned in The Sentence by Louise Erdrich: Autotheory class. Borrowed from library", 11, 0);
+
+INSERT INTO booklist (id, name, author,genre, source, note, readmonth, finished)
+VALUES (2, "The Sentence", "Louise Erdrich", "fiction", "Autotheory Fall 2022", "real-time burning problems like COVID, police brutality, and discrimination against Native Americans rendered into fiction", 10, 1);
+
+INSERT INTO booklist (id, name, author,genre, source, note, readmonth, finished)
+VALUES (3, "City of Illusions", "Ursula K. Le Guin", "speculative fiction", "Hoopla audiobook", "read in text last winter", 12, 0);
+
+INSERT INTO booklist (id, name, author,genre, source, note, readmonth, finished)
+VALUES (4, "Zami: a different spelling of my name", "Audre Lorde", "autofiction", "Kat recommended", "daughter of a traumatized family narrative", 10, 0);
+
+INSERT INTO booklist (id, name, author, genre,  source, note, readmonth, finished)
+VALUES (5, "Heart Berries", "Terese Marie Mailhot", "autobiography", "Autotheory Fall 2022", "daughter of a traumatized family narrative", 10, 1);
+
+INSERT INTO booklist (id, name, author, genre, source, note, readmonth, finished, want_to_reread)
+VALUES (6, "Eleanor or the refusal of the progress of love", "Anna Moschovakis", "fiction",  "Autotheory Fall 2022", "read free ebook from Claremont Colleges library", 10, 1, "not sure");
+
+INSERT INTO booklist (id, name, author, genre, source, note, readmonth, finished, want_to_reread)
+VALUES (7, "The Reconception of Marie", "Teresa Carmody", "autofiction", "Autotheory Fall 2022", "based on author's diary", 10, 1, "not sure");
+
+INSERT INTO booklist (id, name, author, genre, source, note, readmonth, finished, want_to_reread)
+VALUES (8, "Interview with a Ghost", "Tom Sleigh", "creative nonfiction", "Claremont Prison Library Project", "bought for $1", 12, 0, "not sure yet");
+
+/*set autoincrement starting here*/
+
+INSERT INTO booklist (name, author, genre, source, note, readmonth, finished, want_to_reread)
+VALUES ("Book of the Other", "Truong Tran", "Poetry, autotheory", "Autotheory Fall 2022", "terrifyingly relatable", 10, 1, "yes, I already did");
+
+
+SELECT * FROM booklist;
+SELECT genre, COUNT(genre) FROM booklist GROUP BY genre ORDER BY COUNT(genre);
+
+SELECT finished, COUNT(name) AS number_of_books from booklist GROUP BY finished;
+
+SELECT name, readmonth FROM booklist  ORDER BY readmonth;
+
+/* how do I put multiple  books with the same readmonth in the same row?*/
+
+CREATE TABLE authors (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, birthyear INTEGER, pronouns TEXT, alive INTEGER, language TEXT);
+
+INSERT INTO authors (name, birthyear, pronouns, alive, language) VALUES ("Roxane Gay", 1974, "she/her", 1, "English");
+
+INSERT INTO authors (name, birthyear, pronouns, alive, language) VALUES ("Teresa Carmody", 1973, "she/her", 1, "English");
+
+INSERT INTO authors (name, birthyear, pronouns, alive, language) VALUES ("Truong Tran", 1969, "he/him", 1, "English");
+
+INSERT INTO authors (name, birthyear, pronouns, alive, language) VALUES ("Anna Moschovakis", 1969, "he/him", 1, "English");
+
+/*left join: all existing records in booklist -> null if no record exist in authors, matching record if exists*/
+SELECT booklist.name, authors.name FROM booklist LEFT JOIN authors ON booklist.author = authors.name;
+
+/*join: only if both records exist*/
+SELECT booklist.name, authors.name FROM booklist JOIN authors ON booklist.author = authors.name;
+SELECT name, readmonth FROM booklist  ORDER BY readmonth;
+
