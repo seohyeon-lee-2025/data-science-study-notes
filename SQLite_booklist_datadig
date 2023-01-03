@@ -1,5 +1,6 @@
 /* Spinoff from Khan Academy project*/
 /*Data dig from books I read in 2022*/
+/*Winter Break 2022-23*/
 CREATE TABLE booklist (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, author TEXT, genre TEXT, source TEXT, note TEXT, readmonth TEXT, finished INTEGER, want_to_reread TEXT);
 /* finished: 0 if in progress, -1 if DNF, 1 if finished*/
 /* readmonth: 0 if I can't remember*/
