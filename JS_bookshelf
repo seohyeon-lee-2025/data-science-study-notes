@@ -1,0 +1,67 @@
+/*Khan academy project using simplified Javascript*/
+
+var shelfWidth = 300;
+
+var books = [{
+    title: "Foundation",
+    stars: 4,
+    color: color(46, 56, 120)
+    
+}, {
+    title: "The Vegetarian",
+    author: "Han Kang",
+    originalLanguage: "Korean",
+    stars: 5,
+    color: color(218, 34, 34),
+    readOriginal: true
+},
+
+{
+    title: "Calamities",
+    stars: 4,
+    color: color(195, 255, 0),
+    author: "Renee Gladman",
+    hard: true
+}, 
+{
+    title: "City of Illusions",
+    stars: 4, 
+    author: "Ursula K. Le Guin",
+    color: color(69, 170, 201),
+},
+
+{
+    title: "Who is Wellness For?",
+    stars: 4, 
+    author: "Fariha Roisin",
+    color: color(255, 174, 61),
+}
+
+];
+
+// draw shelf
+for (var i=0; i<3; i++){
+fill(173, 117, 33);
+rect(0, 120+120*i, shelfWidth, 10);
+}
+
+var bookH = 100;
+var bookW = 70;
+// draw one book
+for (var i = 0; i < books.length; i++) {
+        var bookX = 10+bookH*i;
+        var bookY = 20;
+    if (bookX>shelfWidth-90) {
+        var rem = bookX % shelfWidth;
+        bookY += 120*((bookX-rem)/shelfWidth);
+        bookX = bookX % shelfWidth;
+        }
+
+    fill(books[i].color);
+    rect(bookX, bookY, 90, 100);
+    fill(0, 0, 0);
+    text(books[i].title, bookX+10, bookY+10,bookW, bookH);
+    for (var j=0; j<books[i].stars;j++){
+        image(getImage("cute/Star"), 10+bookX+ j*15, bookY+bookH*0.7, 20, 30);
+}
+}
